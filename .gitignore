@@ -1,0 +1,9 @@
+*.doc
+*.xls*
+*.pdf
+*.txt
+*.zip
+*.rar
+*.pyc
+*.ipynb*
+!requirements.txt
