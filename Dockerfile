@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM python:3.11-slim
 
 WORKDIR /code
 
@@ -6,12 +6,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DISPLAY=:99
 
-RUN apt-get update \
-	&& apt-get install -y curl gnupg \
-	&& curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-    && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-	&& apt-get install -y catdoc poppler-utils xvfb libxi6 libgconf-2-4 \
-	   unzip graphviz-dev ghostscript python3-tk nodejs yarn unar 
+RUN apt-get update
+RUN apt-get install -y curl gnupg npm
+RUN npm install n -g
+RUN n latest
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN apt-get install -y catdoc poppler-utils xvfb libxi6 libgconf-2-4 unzip graphviz-dev ghostscript python3-tk nodejs yarn unar 
 
 COPY requirements.txt .
 
