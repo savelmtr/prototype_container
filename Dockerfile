@@ -19,3 +19,5 @@ RUN pip install --no-warn-script-location --disable-pip-version-check --requirem
 	&& jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
 
 EXPOSE 8888
+
+CMD jupyter notebook --ip 0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.password='' --no-browser .
