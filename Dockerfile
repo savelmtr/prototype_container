@@ -16,8 +16,8 @@ RUN apt-get install -y catdoc poppler-utils xvfb libxi6 libgconf-2-4 unzip graph
 
 COPY requirements.txt .
 
-RUN pip install --no-warn-script-location --disable-pip-version-check --requirement requirements.txt \
-	&& jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
+RUN pip install --no-warn-script-location --disable-pip-version-check --requirement requirements.txt
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
 
 EXPOSE 8888
 
